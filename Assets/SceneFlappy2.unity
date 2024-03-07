@@ -1392,6 +1392,13 @@ MonoBehaviour:
   objetPackVie: {fileID: 580544656}
   objetChampignon: {fileID: 1388152326}
   deplacementAleatoireY: 4
+  sonChampignon: {fileID: 0}
+  sonPieceOr: {fileID: 0}
+  sonPackVie: {fileID: 0}
+  sonColonne: {fileID: 0}
+  sonFinPartie: {fileID: 0}
+  finPartie: 0
+  etatFlappyBlesse: 0
 --- !u!60 &1131426289
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1519,7 +1526,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: -479334589, guid: a7af7671d35761c43932c0b20ceb4593, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

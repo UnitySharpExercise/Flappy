@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: b3c7ee7ec0dd216478ab9b3ecc439398
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - flappyBlesse: {instanceID: 0}
+  - flappyNormal: {instanceID: 0}
+  - objetPieceOr: {instanceID: 0}
+  - objetPackVie: {instanceID: 0}
+  - objetChampignon: {instanceID: 0}
+  - sonChampignon: {fileID: 8300000, guid: 5c06f45f41c1a2b4fb8ab0d4fc7f299c, type: 3}
+  - sonPieceOr: {fileID: 8300000, guid: d11ed691c5054ff41a2e5ea97fc44f70, type: 3}
+  - sonPackVie: {fileID: 8300000, guid: f612696399a71ad40952c2c6646184cc, type: 3}
+  - sonColonne: {fileID: 8300000, guid: cb71c137f4acb2d4a9048777b2cebf7c, type: 3}
+  - sonFinPartie: {fileID: 8300000, guid: 742af7577dea01e4b96046f9360ddc44, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
