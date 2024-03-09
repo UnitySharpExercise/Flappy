@@ -26,6 +26,7 @@ public class ControleFlappy : MonoBehaviour
     AudioSource sourceAudio; // source audio
     public bool partieTerminee; // variable pour la fin de la partie
     public bool etatFlappyBlesse; // variable pour l'état de Flappy
+    public TextMeshProUGUI textFinDuJeu; // texte du pointage
 
     public TextMeshProUGUI textPointage;
     float compteur = 0;
@@ -37,7 +38,9 @@ public class ControleFlappy : MonoBehaviour
     {
             sourceAudio = GetComponent<AudioSource>(); //va chercher le son
             partieTerminee = false; //initialise la variable partieTerminee à faux
-            etatFlappyBlesse = false; //initialise la variable etatFlappyBlesse à faux      
+            etatFlappyBlesse = false; //initialise la variable etatFlappyBlesse à faux    
+            textFinDuJeu.text = "Flappy est mort...";
+            textFinDuJeu.GetComponent<TextMeshProUGUI>().fontSize = 0; //va chercher le texte  
     }
 
      // Fonction qui gère les déplacements et le saut du personnage à l'aide des touches A, D et W.
@@ -130,6 +133,7 @@ public class ControleFlappy : MonoBehaviour
 
                 // On arrête la partie
                 partieTerminee = true;
+                textFinDuJeu.GetComponent<TextMeshProUGUI>().fontSize += 100;
 
                 GetComponent<Rigidbody2D>().freezeRotation = false;
                 GetComponent<Rigidbody2D>().velocity = new Vector2(0, 5);
@@ -139,7 +143,7 @@ public class ControleFlappy : MonoBehaviour
                 Invoke("FinPartie", 3f); // On appelle la fonction FinPartie après 2 secondes (le temps que le son se joue
 
             }
-            if (collisionTrue.gameObject.name == "Colonne" || collisionTrue.gameObject.name == "Decor")
+            if (collisionTrue.gameObject.name == "Colonne")
             {
                 compteur = compteur -5f;
                 UpdatePointage();
@@ -203,8 +207,14 @@ public class ControleFlappy : MonoBehaviour
             compteur = compteur + 10f;
             UpdatePointage();
         }
-        
+        else if(collisionTrue.gameObject.name == "Decor")
+        {
+            compteur = compteur -5f;
+            UpdatePointage();
+        }
     }
+
+    
 
 
 
@@ -262,6 +272,7 @@ public class ControleFlappy : MonoBehaviour
     {
         textPointage.text = "Pointage: " + compteur.ToString();
     }
+
 
 }
 
