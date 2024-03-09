@@ -9,9 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/SceneFlappy4.unity
+    path: Assets/Scenes/SceneFlappy4.unity
     guid: 5eec510a7d6dc244685f97fe3e005f1f
   - enabled: 1
-    path: Assets/SceneFlappy3.unity
+    path: Assets/Scenes/SceneFlappy3.unity
     guid: babb028a73540e545b041b8eaf585479
   m_configObjects: {}

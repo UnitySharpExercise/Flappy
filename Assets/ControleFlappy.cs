@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using TMPro;
 
 public class ControleFlappy : MonoBehaviour
 {
@@ -25,13 +27,17 @@ public class ControleFlappy : MonoBehaviour
     public bool partieTerminee; // variable pour la fin de la partie
     public bool etatFlappyBlesse; // variable pour l'état de Flappy
 
+    public TextMeshProUGUI textPointage;
+    float compteur = 0;
+
+
 
     // Appelé au début du jeu
     void Start()
     {
             sourceAudio = GetComponent<AudioSource>(); //va chercher le son
             partieTerminee = false; //initialise la variable partieTerminee à faux
-            etatFlappyBlesse = false; //initialise la variable etatFlappyBlesse à faux
+            etatFlappyBlesse = false; //initialise la variable etatFlappyBlesse à faux      
     }
 
      // Fonction qui gère les déplacements et le saut du personnage à l'aide des touches A, D et W.
@@ -133,6 +139,11 @@ public class ControleFlappy : MonoBehaviour
                 Invoke("FinPartie", 3f); // On appelle la fonction FinPartie après 2 secondes (le temps que le son se joue
 
             }
+            if (collisionTrue.gameObject.name == "Colonne" || collisionTrue.gameObject.name == "Decor")
+            {
+                compteur = compteur -5f;
+                UpdatePointage();
+            }
 
         }
         // Si Flappy touche une pièce d'or
@@ -144,6 +155,10 @@ public class ControleFlappy : MonoBehaviour
 
             // joue le clip qui se trouve dans la variable sonOr
            sourceAudio.PlayOneShot(sonOr, 1f);
+
+            compteur = compteur + 5f;
+            UpdatePointage();
+
 
 
         }
@@ -163,6 +178,10 @@ public class ControleFlappy : MonoBehaviour
             // On change l'état de Flappy à normal
            etatFlappyBlesse = false;
 
+            compteur = compteur + 5f;
+            UpdatePointage();
+
+
 
         }
         // Si Flappy touche un champignon
@@ -178,8 +197,11 @@ public class ControleFlappy : MonoBehaviour
             collisionTrue.gameObject.SetActive(false);
             Invoke("ActiveChampignon", 5f);
 
-            // joue le clip qui se trouve dans la variable sonChamp
-           sourceAudio.PlayOneShot(sonChamp, 1f);
+             // joue le clip qui se trouve dans la variable sonChamp
+            sourceAudio.PlayOneShot(sonChamp, 1f);
+
+            compteur = compteur + 10f;
+            UpdatePointage();
         }
         
     }
@@ -234,7 +256,11 @@ public class ControleFlappy : MonoBehaviour
     }
     void FinPartie()
     {
-      SceneManager.LoadScene("SceneFlappy3");
+      SceneManager.LoadScene("SceneFlappy4");
+    }
+    void UpdatePointage()
+    {
+        textPointage.text = "Pointage: " + compteur.ToString();
     }
 
 }
