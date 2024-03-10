@@ -14,6 +14,7 @@ public class ControleFlappy : MonoBehaviour
     public Sprite flappyBlesseFerme; // image de Flappy blessé volant
     public Sprite flappyNormal; // image de Flappy normal
      public Sprite flappyNormalFerme; // image de Flappy normal volant
+     public GameObject elementGrille; // objet grille
     public GameObject objetPieceOr; // objet pièce d'or
     public GameObject objetPackVie; // objet pack de vie
     public GameObject objetChampignon; // objet champignon
@@ -163,8 +164,8 @@ public class ControleFlappy : MonoBehaviour
             compteur = compteur + 5f;
             UpdatePointage();
 
-
-
+            elementGrille.GetComponent<Animator>().enabled = true;  
+    
         }
         // Si Flappy touche un pack de vie
         else if(collisionTrue.gameObject.name == "PackVie")
@@ -237,6 +238,10 @@ public class ControleFlappy : MonoBehaviour
         float valeurAleatoireY = Random.Range(-deplacementAleatoireY, deplacementAleatoireY);
         objetPieceOr.transform.position = new Vector2(objetPieceOr.transform.position.x, valeurAleatoireY);
 
+            
+        elementGrille.GetComponent<Animator>().enabled = false;  
+    
+
     }
 
 
@@ -266,13 +271,12 @@ public class ControleFlappy : MonoBehaviour
     }
     void FinPartie()
     {
-      SceneManager.LoadScene("SceneFlappy4");
+      SceneManager.LoadScene("SceneFlappy5");
     }
     void UpdatePointage()
     {
         textPointage.text = "Pointage: " + compteur.ToString();
     }
-
 
 }
 
