@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SceneFlappy3.unity
     guid: babb028a73540e545b041b8eaf585479
+  - enabled: 1
+    path: Assets/Scenes/SceneFlappy6.unity
+    guid: 2396f710cf2d4cc4d8d7108b1a067b8e
   m_configObjects: {}
