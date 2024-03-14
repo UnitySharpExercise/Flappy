@@ -5,6 +5,13 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 
+/*
+Script qui gère le déplacement et les collisions de Flappy
+
+Nom: Matilda Kang
+Derniere Modification: 2024-03-14
+*/
+
 public class ControleFlappy : MonoBehaviour
 {
     //Déclaration des variables (publiques, privées et statiques)
